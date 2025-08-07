@@ -1,4 +1,4 @@
-name: Dev OCB Azure Static Web App CI CD pipeline 
+name: KFC-test
 
 on:
   push:
