@@ -3,11 +3,11 @@ name: KFC-test1
 on:
   push:
     branches:
-      - main # runs on pushes to Main branch
+      - yusuf-test # runs on pushes to Main branch
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - main
+      - yusuf-test
 
   workflow_dispatch: #Piepline manual run
 
