@@ -1,0 +1,44 @@
+name: Dev OCB Azure Static Web App CI CD pipeline 
+
+on:
+  push:
+    branches:
+      - main # runs on pushes to Main branch
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+
+  workflow_dispatch: #Piepline manual run
+
+#permission for Azure OIDC connect 
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build_and_deploy_job:
+#    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-22.04
+    steps:
+      #Login Azure OIDC
+        
+      #Checkout code from Repository
+      - name: Code checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          lfs: false
+    
+      #Nodejs setup
+      - name: Set up Node.js version
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+
+      #npm setup
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
