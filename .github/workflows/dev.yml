@@ -1,4 +1,4 @@
-name: KFC-test1
+name: KFC-test1-latest
 
 on:
   push:
