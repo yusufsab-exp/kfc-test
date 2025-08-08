@@ -4,8 +4,8 @@ on:
   push:
     tags:
       - 'uat-*'  # only trigger when pushing a tag starting with 'uat-'
-    branches:
-      - yusuf-test # runs on pushes to Main branch
+#    branches:
+#      - yusuf-test # runs on pushes to Main branch
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
