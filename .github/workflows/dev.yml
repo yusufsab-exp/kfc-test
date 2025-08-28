@@ -20,6 +20,7 @@ jobs:
   build_and_deploy_job:
 #    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-22.04
+    environment: build-approval
     steps:
       #Login Azure OIDC
         
